@@ -9,7 +9,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PiwoBack.Data", "PiwoBack.D
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PiwoBack.Repository", "PiwoBack.Repository\PiwoBack.Repository.csproj", "{0E7B13C7-C7FD-4463-8FCD-63EB8103A6EF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PiwoBack.Services", "PiwoBack.Services\PiwoBack.Services.csproj", "{F1290CE7-7BFE-4209-B20E-4FA5AAC6DE34}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PiwoBack.Services", "PiwoBack.Services\PiwoBack.Services.csproj", "{19429D97-9B8F-4604-9D76-EEB864312DAD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -29,10 +29,10 @@ Global
 		{0E7B13C7-C7FD-4463-8FCD-63EB8103A6EF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0E7B13C7-C7FD-4463-8FCD-63EB8103A6EF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0E7B13C7-C7FD-4463-8FCD-63EB8103A6EF}.Release|Any CPU.Build.0 = Release|Any CPU
-		{F1290CE7-7BFE-4209-B20E-4FA5AAC6DE34}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F1290CE7-7BFE-4209-B20E-4FA5AAC6DE34}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F1290CE7-7BFE-4209-B20E-4FA5AAC6DE34}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F1290CE7-7BFE-4209-B20E-4FA5AAC6DE34}.Release|Any CPU.Build.0 = Release|Any CPU
+		{19429D97-9B8F-4604-9D76-EEB864312DAD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{19429D97-9B8F-4604-9D76-EEB864312DAD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{19429D97-9B8F-4604-9D76-EEB864312DAD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{19429D97-9B8F-4604-9D76-EEB864312DAD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

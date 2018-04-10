@@ -5,8 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Interfaces\" />
-    <Folder Include="Services\" />
+    <ProjectReference Include="..\PiwoBack.Repository\PiwoBack.Repository.csproj" />
   </ItemGroup>
 
 </Project>
