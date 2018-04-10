@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace PiwoBack.Repository.Migrations
 {
-    public partial class initial : Migration
+    public partial class Initial : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -98,13 +98,13 @@ namespace PiwoBack.Repository.Migrations
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
                     Alcohol = table.Column<double>(nullable: false),
-                    Blg = table.Column<double>(nullable: false),
+                    Blg = table.Column<double>(nullable: true),
                     BreweryId = table.Column<int>(nullable: false),
                     Color = table.Column<string>(nullable: true),
                     Country = table.Column<string>(nullable: true),
                     CreationDate = table.Column<DateTime>(nullable: false),
                     Description = table.Column<string>(nullable: false),
-                    Ibu = table.Column<double>(nullable: false),
+                    Ibu = table.Column<double>(nullable: true),
                     ModifiedDate = table.Column<DateTime>(nullable: false),
                     Name = table.Column<string>(nullable: false),
                     Price = table.Column<double>(nullable: false)

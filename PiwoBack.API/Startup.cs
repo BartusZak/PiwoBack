@@ -33,6 +33,7 @@ namespace PiwoBack.API
             services.AddDbContext<PiwoDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
             services.AddTransient<IBeerService, BeerService>();
+            services.AddTransient<IBreweryService, BreweryService>();
             services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
             services.AddMvc().AddJsonOptions(options => { options.SerializerSettings.Formatting = Formatting.Indented; });
         }

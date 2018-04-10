@@ -11,9 +11,10 @@ using System;
 namespace PiwoBack.Repository.Migrations
 {
     [DbContext(typeof(PiwoDbContext))]
-    partial class PiwoDbContextModelSnapshot : ModelSnapshot
+    [Migration("20180410153454_Initial")]
+    partial class Initial
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

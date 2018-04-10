@@ -17,8 +17,8 @@ namespace PiwoBack.Data.Models
         public double Price { get; set; }
         public string Color { get; set; }
         public string Country { get; set; }
-        public double Ibu { get; set; }
-        public double Blg { get; set; }
+        public double? Ibu { get; set; }
+        public double? Blg { get; set; }
         [Required]
         public Brewery Brewery { get; set; }
         public ICollection<Comment> Comments { get; set; }

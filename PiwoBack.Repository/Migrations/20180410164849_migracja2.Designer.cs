@@ -11,8 +11,8 @@ using System;
 namespace PiwoBack.Repository.Migrations
 {
     [DbContext(typeof(PiwoDbContext))]
-    [Migration("20180410124936_initial")]
-    partial class initial
+    [Migration("20180410164849_migracja2")]
+    partial class migracja2
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -28,7 +28,7 @@ namespace PiwoBack.Repository.Migrations
 
                     b.Property<double>("Alcohol");
 
-                    b.Property<double>("Blg");
+                    b.Property<double?>("Blg");
 
                     b.Property<int>("BreweryId");
 
@@ -41,7 +41,7 @@ namespace PiwoBack.Repository.Migrations
                     b.Property<string>("Description")
                         .IsRequired();
 
-                    b.Property<double>("Ibu");
+                    b.Property<double?>("Ibu");
 
                     b.Property<DateTime>("ModifiedDate");
 
