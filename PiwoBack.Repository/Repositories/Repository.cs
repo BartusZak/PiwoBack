@@ -76,6 +76,7 @@ namespace PiwoBack.Repository.Repositories
             _dbSet.Update(entity);
             _context.SaveChanges();
         }
+
         public void Delete(Expression<Func<T, bool>> expression)
         {
             var entity = _dbSet.SingleOrDefault(expression);
@@ -85,6 +86,14 @@ namespace PiwoBack.Repository.Repositories
             }
             _dbSet.Remove(entity);
             _context.SaveChanges();
+        }
+
+        public void GetRelatedCollections(T entity, params Expression<Func<T, IEnumerable<object>>>[] collections)
+        {
+            foreach (var collection in collections)
+            {
+                _context.Entry(entity).Collection(collection).Load();
+            }
         }
     }
 }

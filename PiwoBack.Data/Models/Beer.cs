@@ -19,8 +19,7 @@ namespace PiwoBack.Data.Models
         public string Country { get; set; }
         public double? Ibu { get; set; }
         public double? Blg { get; set; }
-        [Required]
         public Brewery Brewery { get; set; }
-        public ICollection<Comment> Comments { get; set; }
+        public virtual ICollection<Comment> Comments { get; set; }
     }
 }

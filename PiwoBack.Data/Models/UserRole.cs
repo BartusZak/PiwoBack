@@ -8,6 +8,6 @@ namespace PiwoBack.Data.Models
     public class UserRole : Entity
     {
         public string Role { get; set; }
-        public ICollection<User> Users { get; set; }
+        public virtual ICollection<User> Users { get; set; }
     }
 }

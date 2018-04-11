@@ -15,7 +15,7 @@ namespace PiwoBack.Repository.Migrations
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    Address = table.Column<string>(nullable: false),
+                    Address = table.Column<string>(nullable: true),
                     CreateDate = table.Column<DateTime>(nullable: false),
                     CreationDate = table.Column<DateTime>(nullable: false),
                     Description = table.Column<string>(nullable: true),
@@ -99,7 +99,7 @@ namespace PiwoBack.Repository.Migrations
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
                     Alcohol = table.Column<double>(nullable: false),
                     Blg = table.Column<double>(nullable: true),
-                    BreweryId = table.Column<int>(nullable: false),
+                    BreweryId = table.Column<int>(nullable: true),
                     Color = table.Column<string>(nullable: true),
                     Country = table.Column<string>(nullable: true),
                     CreationDate = table.Column<DateTime>(nullable: false),
@@ -117,7 +117,7 @@ namespace PiwoBack.Repository.Migrations
                         column: x => x.BreweryId,
                         principalTable: "Breweries",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(

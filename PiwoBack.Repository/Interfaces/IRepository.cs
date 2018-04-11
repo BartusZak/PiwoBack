@@ -15,5 +15,7 @@ namespace PiwoBack.Repository.Interfaces
         int Insert(T entity);
         void Update(T entity);
         void Delete(Expression<Func<T, bool>> expression);
+
+        void GetRelatedCollections(T entity, params Expression<Func<T, IEnumerable<object>>>[] collections);
     }
 }

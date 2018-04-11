@@ -11,8 +11,8 @@ using System;
 namespace PiwoBack.Repository.Migrations
 {
     [DbContext(typeof(PiwoDbContext))]
-    [Migration("20180410164849_migracja2")]
-    partial class migracja2
+    [Migration("20180411160444_Initial")]
+    partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -30,7 +30,7 @@ namespace PiwoBack.Repository.Migrations
 
                     b.Property<double?>("Blg");
 
-                    b.Property<int>("BreweryId");
+                    b.Property<int?>("BreweryId");
 
                     b.Property<string>("Color");
 
@@ -85,8 +85,7 @@ namespace PiwoBack.Repository.Migrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<string>("Address")
-                        .IsRequired();
+                    b.Property<string>("Address");
 
                     b.Property<DateTime>("CreateDate");
 
@@ -180,8 +179,7 @@ namespace PiwoBack.Repository.Migrations
                 {
                     b.HasOne("PiwoBack.Data.Models.Brewery", "Brewery")
                         .WithMany("Beers")
-                        .HasForeignKey("BreweryId")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .HasForeignKey("BreweryId");
                 });
 
             modelBuilder.Entity("PiwoBack.Data.Models.Brewery", b =>

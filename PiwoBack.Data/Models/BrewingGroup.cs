@@ -9,12 +9,11 @@ namespace PiwoBack.Data.Models
     {
         [Required]
         public string Name { get; set; }
-        [Required]
         public string Address { get; set; }
         public string Description { get; set; }
         public string Director { get; set; }
         public DateTime CreateDate { get; set; }
-        public ICollection<Brewery> Breweries { get; set; }
+        public virtual ICollection<Brewery> Breweries { get; set; }
 
     }
 }

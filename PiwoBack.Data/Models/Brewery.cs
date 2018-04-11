@@ -11,6 +11,6 @@ namespace PiwoBack.Data.Models
         public string Name { get; set; }
         public string Description { get; set; }
         public BrewingGroup BrewingGroup { get; set; }
-        public ICollection<Beer> Beers { get; set; }
+        public virtual ICollection<Beer> Beers { get; set; }
     }
 }

@@ -25,6 +25,7 @@ namespace PiwoBack.Services.Services
         public Beer GetBeer(int id)
         {
             var beer = _beerRepository.GetBy(x => x.Id == id);
+            _beerRepository.GetRelatedCollections(beer, x => x.Comments);
 
             if (beer == null)
             {
