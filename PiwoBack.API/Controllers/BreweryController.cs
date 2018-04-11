@@ -28,12 +28,12 @@ namespace PiwoBack.API.Controllers
         [HttpGet("{id}")]
         public IActionResult GetBrewery(int id)
         {
-            var breweries = _breweryService.GetBrewery(id);
-            if (breweries == null)
+            var brewery = _breweryService.GetBrewery(id);
+            if (brewery == null)
             {
                 return NotFound();
             }
-            return Ok(breweries);
+            return Ok(brewery);
         }
 
     }

@@ -34,6 +34,7 @@ namespace PiwoBack.API
 
             services.AddTransient<IBeerService, BeerService>();
             services.AddTransient<IBreweryService, BreweryService>();
+            services.AddTransient<IBrewingGroupService, BrewingGroupService>();
             services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
             services.AddMvc().AddJsonOptions(options => { options.SerializerSettings.Formatting = Formatting.Indented; });
         }
