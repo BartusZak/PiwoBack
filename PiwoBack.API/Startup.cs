@@ -15,6 +15,7 @@ using PiwoBack.Repository.Interfaces;
 using PiwoBack.Repository.Repositories;
 using PiwoBack.Services.Interfaces;
 using PiwoBack.Services.Services;
+using AutoMapper;
 
 namespace PiwoBack.API
 {
@@ -36,6 +37,8 @@ namespace PiwoBack.API
             services.AddTransient<IBreweryService, BreweryService>();
             services.AddTransient<IBrewingGroupService, BrewingGroupService>();
             services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
+
+            services.AddAutoMapper();
             services.AddMvc().AddJsonOptions(options => { options.SerializerSettings.Formatting = Formatting.Indented; });
         }
 

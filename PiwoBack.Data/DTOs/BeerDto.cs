@@ -7,6 +7,7 @@ namespace PiwoBack.Data.DTOs
 {
     public class BeerDto
     {
+        public int Id { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
         public double Alcohol { get; set; }
@@ -15,7 +16,7 @@ namespace PiwoBack.Data.DTOs
         public string Country { get; set; }
         public double Ibu { get; set; }
         public double Blg { get; set; }
-        public Brewery Brewery { get; set; }
-        public ICollection<Comment> Comments { get; set; }
+        public BreweryDto Brewery { get; set; }
+        public IEnumerable<CommentDto> Comments { get; set; }
     }
 }

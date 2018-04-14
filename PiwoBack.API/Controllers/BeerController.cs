@@ -30,7 +30,8 @@ namespace PiwoBack.API.Controllers
         public IActionResult GetBeer(int id)
         {
             var beer = _beerService.GetBeer(id);
-            if(beer == null)
+            
+            if(beer == null )
             {
                 return NotFound();
             }
