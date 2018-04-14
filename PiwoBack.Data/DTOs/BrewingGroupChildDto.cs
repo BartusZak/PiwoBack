@@ -4,12 +4,13 @@ using System.Text;
 
 namespace PiwoBack.Data.DTOs
 {
-    public class BreweryDto
+    public class BrewingGroupChildDto
     {
         public int Id { get; set; }
         public string Name { get; set; }
+        public string Address { get; set; }
         public string Description { get; set; }
-        public BrewingGroupChildDto BrewingGroup { get; set; }
-        public virtual IEnumerable<BeerChildDto> Beers { get; set; }
+        public string Director { get; set; }
+        public DateTime CreateDate { get; set; }
     }
 }

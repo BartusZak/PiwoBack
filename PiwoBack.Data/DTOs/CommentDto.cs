@@ -10,5 +10,6 @@ namespace PiwoBack.Data.DTOs
         public int Id { get; set; }
         public string Content { get; set; }
         public User Author { get; set; }
+        public DateTime CreationDate { get; set; }
     }
 }

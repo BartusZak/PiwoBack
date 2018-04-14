@@ -22,13 +22,13 @@ namespace PiwoBack.Services.Services
 
         public IEnumerable<BreweryDto> GetAll()
         {
-            var breweries = _breweryRepository.GetAll();
+            var breweries = _breweryRepository.GetAll(bg => bg.BrewingGroup);
             return _mapper.Map<IEnumerable<Brewery>, IEnumerable<BreweryDto>>(breweries);
         }
 
         public BreweryDto GetBrewery(int id)
         {
-            var brewery = _breweryRepository.GetBy(x => x.Id == id);
+            var brewery = _breweryRepository.GetBy(x => x.Id == id, bg => bg.BrewingGroup);
             
             if (brewery == null)
             {

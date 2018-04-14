@@ -16,7 +16,7 @@ namespace PiwoBack.Data.DTOs
         public string Country { get; set; }
         public double Ibu { get; set; }
         public double Blg { get; set; }
-        public BreweryDto Brewery { get; set; }
+        public BreweryChildDto Brewery { get; set; }
         public IEnumerable<CommentDto> Comments { get; set; }
     }
 }
