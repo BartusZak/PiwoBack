@@ -27,7 +27,7 @@ namespace PiwoBack.Repository.Repositories
             {
                 query = query.Include(include);
             }
-            return query;
+            return query.ToList();
         }
         public IEnumerable<T> GetAllBy(Expression<Func<T, bool>> getBy, params Expression<Func<T, object>>[] includes)
         {
@@ -68,13 +68,16 @@ namespace PiwoBack.Repository.Repositories
 
         public void Update(T entity)
         {
+
             if (entity == null)
             {
                 throw new ArgumentNullException("entity");
             }
             entity.ModifiedDate = DateTime.Now;
+            
             _dbSet.Update(entity);
             _context.SaveChanges();
+
         }
 
         public void Delete(Expression<Func<T, bool>> expression)
