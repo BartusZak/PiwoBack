@@ -13,6 +13,6 @@ namespace PiwoBack.Data.Models
         [Required]
         public Beer Beer { get; set; }
         [Required]
-        public User Author { get; set; }
+        public User User { get; set; }
     }
 }
