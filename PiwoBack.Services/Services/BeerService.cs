@@ -24,7 +24,7 @@ namespace PiwoBack.Services.Services
 
         public IEnumerable<BeerDto> GetAll()
         {
-            var beers = _beerRepository.GetAll(x=> x.Brewery);
+            var beers = _beerRepository.GetAll(x=> x.Brewery, c => c.Comments);
             return _mapper.Map<IEnumerable<Beer>, IEnumerable<BeerDto>>(beers);
         }
 
@@ -37,7 +37,7 @@ namespace PiwoBack.Services.Services
                 return null;
             }
 
-            _beerRepository.GetRelatedCollections(beer, x => x.Comments);
+            _beerRepository.GetRelatedCollectionsWithObject(beer, x => x.Comments, a => a.Author);
             return _mapper.Map<BeerDto>(beer);
         }
     }

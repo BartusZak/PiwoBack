@@ -95,5 +95,9 @@ namespace PiwoBack.Repository.Repositories
                 _context.Entry(entity).Collection(collection).Load();
             }
         }
+        public void GetRelatedCollectionsWithObject<TInclude>(T entity, Expression<Func<T, IEnumerable<TInclude>>> collection, Expression<Func<TInclude, object>> include) where TInclude : Entity
+        {
+                _context.Entry(entity).Collection(collection).Query().Include(include).Load();
+        }
     }
 }

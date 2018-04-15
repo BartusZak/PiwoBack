@@ -17,5 +17,7 @@ namespace PiwoBack.Repository.Interfaces
         void Delete(Expression<Func<T, bool>> expression);
 
         void GetRelatedCollections(T entity, params Expression<Func<T, IEnumerable<object>>>[] collections);
+
+        void GetRelatedCollectionsWithObject<TInclude>(T entity, Expression<Func<T, IEnumerable<TInclude>>> collection, Expression<Func<TInclude, object>> include) where TInclude : Entity;
     }
 }
