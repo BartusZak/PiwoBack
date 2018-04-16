@@ -4,7 +4,7 @@ using System.Text;
 
 namespace PiwoBack.Data.DTOs
 {
-    public class BreweryDto : BaseDto
+    public class BreweryDto
     {
         public int Id { get; set; }
         public string Name { get; set; }

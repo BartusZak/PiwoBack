@@ -16,6 +16,5 @@ namespace PiwoBack.Data.Models
         public string PasswordHash { get; set; }
         public DateTime RegisterDate { get; set; }
         public UserRole Role { get; set; }
-
     }
 }

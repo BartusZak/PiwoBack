@@ -61,11 +61,7 @@ namespace PiwoBack.Repository.Migrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<string>("Address");
-
                     b.Property<int?>("BrewingGroupId");
-
-                    b.Property<DateTime>("CreateDate");
 
                     b.Property<DateTime>("CreationDate");
 
@@ -113,6 +109,8 @@ namespace PiwoBack.Repository.Migrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
 
+                    b.Property<int>("AuthorId");
+
                     b.Property<int>("BeerId");
 
                     b.Property<string>("Content")
@@ -122,13 +120,11 @@ namespace PiwoBack.Repository.Migrations
 
                     b.Property<DateTime>("ModifiedDate");
 
-                    b.Property<int>("UserId");
-
                     b.HasKey("Id");
 
-                    b.HasIndex("BeerId");
+                    b.HasIndex("AuthorId");
 
-                    b.HasIndex("UserId");
+                    b.HasIndex("BeerId");
 
                     b.ToTable("Comments");
                 });
@@ -194,14 +190,14 @@ namespace PiwoBack.Repository.Migrations
 
             modelBuilder.Entity("PiwoBack.Data.Models.Comment", b =>
                 {
+                    b.HasOne("PiwoBack.Data.Models.User", "Author")
+                        .WithMany()
+                        .HasForeignKey("AuthorId")
+                        .OnDelete(DeleteBehavior.Cascade);
+
                     b.HasOne("PiwoBack.Data.Models.Beer", "Beer")
                         .WithMany("Comments")
                         .HasForeignKey("BeerId")
-                        .OnDelete(DeleteBehavior.Cascade);
-
-                    b.HasOne("PiwoBack.Data.Models.User", "User")
-                        .WithMany()
-                        .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 
