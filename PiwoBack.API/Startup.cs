@@ -16,9 +16,9 @@ using PiwoBack.Repository.Repositories;
 using PiwoBack.Services.Interfaces;
 using PiwoBack.Services.Services;
 using AutoMapper;
-using PiwoBack.Data.Models;
-using PiwoBack.Data.ViewModels;
-using PiwoBack.Services;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
 
 namespace PiwoBack.API
 {
@@ -34,19 +34,35 @@ namespace PiwoBack.API
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddCors();
             services.AddDbContext<PiwoDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
+            services.AddAuthentication(options =>
+            {
+                options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+                options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+            }).AddJwtBearer(options =>
+            {
+                options.TokenValidationParameters = new TokenValidationParameters
+                {
+                    ValidateIssuer = true,
+                    ValidateAudience = true,
+                    ValidateLifetime = true,
+                    ValidateIssuerSigningKey = true,
+                    ValidIssuer = Configuration["Jwt:Issuer"],
+                    ValidAudience = Configuration["Jwt:Issuer"],
+                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration["Jwt:Key"]))
+                };
+            });
+
+            services.AddSingleton<IConfigurationManager, ConfigurationManager>();
+            services.AddTransient<IAccountService, AccountService>();
             services.AddTransient<IBeerService, BeerService>();
             services.AddTransient<IBreweryService, BreweryService>();
             services.AddTransient<IBrewingGroupService, BrewingGroupService>();
             services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
-            //  Mapper.Configuration
-            services.AddAutoMapper((cfg =>
-             {
-                 cfg.AddProfile<MappingProfile>();
-             }));
-           
-  
+
+            services.AddAutoMapper();
             services.AddMvc().AddJsonOptions(options => { options.SerializerSettings.Formatting = Formatting.Indented; });
         }
 
@@ -57,7 +73,8 @@ namespace PiwoBack.API
             {
                 app.UseDeveloperExceptionPage();
             }
-
+            app.UseCors(bulider => bulider.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod());
+            //app.UseAuthentication();
             app.UseMvc();
         }
     }

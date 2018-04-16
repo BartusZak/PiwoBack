@@ -5,7 +5,7 @@ using System.Text;
 
 namespace PiwoBack.Data.DTOs
 {
-    public class BeerDto : BaseDto
+    public class BeerDto
     {
         public int Id { get; set; }
         public string Name { get; set; }
